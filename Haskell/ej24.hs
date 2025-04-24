@@ -1,6 +1,6 @@
 repetir :: Int -> String
 repetir n
-  | n > 0 = valor ++ repetir (div n 10)
+  | n > 0 = repetir (div n 10) ++ valor
   | otherwise = ""
   where
     valor = concatenarDigito (mod n 10) 1
