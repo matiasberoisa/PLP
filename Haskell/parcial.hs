@@ -13,8 +13,8 @@ sumatoria k c
   | k > 0 = fromIntegral (div divisor dividendo) + sumatoria (k - 1) c
   | otherwise = 0
   where
-    divisor = fromIntegral (potenciaTriple k + (5 * c))
-    dividendo = fromIntegral ((k * 2) + (c - 1))
+    divisor = potenciaTriple k + (5 * c)
+    dividendo = (k * 2) + (c - 1)
 
 potenciaTriple :: Int -> Int
 potenciaTriple x = x * x * x
