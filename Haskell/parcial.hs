@@ -10,11 +10,11 @@ concatenar (n, m) c
 
 sumatoria :: Int -> Int -> Float
 sumatoria k c
-  | k > 0 = fromIntegral (div divisor dividendo) + sumatoria (k - 1) c
+  | k > 0 = divisor / dividendo + sumatoria (k - 1) c
   | otherwise = 0
   where
-    divisor = potenciaTriple k + (5 * c)
-    dividendo = (k * 2) + (c - 1)
+    divisor = fromIntegral (potenciaTriple k + (5 * c))
+    dividendo = fromIntegral ((k * 2) + (c - 1))
 
 potenciaTriple :: Int -> Int
 potenciaTriple x = x * x * x
