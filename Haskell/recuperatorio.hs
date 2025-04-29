@@ -11,13 +11,6 @@ sumatoria n
   where
     resultado = calcBinomio (2 * n, n) / fromIntegral ((n + 1) * (2 * n + 5) * (16 ^ n))
 
-suma :: Int -> Int -> Double
-suma j n
-  | j == n = resultado
-  | j < n = resultado + suma (j + 1) n
-  where
-    resultado = calcBinomio (2 * j, j) / (fromIntegral ((j + 1) * (2 * j + 5)) * (16 ^ j))
-
 calcBinomio :: (Int, Int) -> Double
 calcBinomio (p, r) = fromIntegral (fact p) / fromIntegral (fact r * fact (p - r))
 
