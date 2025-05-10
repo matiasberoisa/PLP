@@ -15,11 +15,13 @@ sucesion (x, n)
   | n >= 1 = suma + sucesion (x, n - 1)
   | otherwise = suma / resultado
   where
-    suma = sq n
+    suma = sq n n
     resultado = factorial x
 
-sq :: (Num int) => int -> int
-sq x = x * x
+sq :: (Ord int, Num int) => int -> int -> int
+sq cont x
+  | x > 0 = x * sq (cont - 1) x
+  | otherwise = 1
 
 main :: IO ()
 main = do
