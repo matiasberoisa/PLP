@@ -1,14 +1,14 @@
 repetir :: Int -> String
 repetir n
-  | n > 0 = repetir (div n 10) ++ valor
+  | n > 0 = repetir (div n 10) ++ "-" ++ valor
   | otherwise = ""
   where
-    valor = concatenarDigito (mod n 10) 1
+    valor = concatenarDigito (mod n 10) (mod n 10)
 
 concatenarDigito :: Int -> Int -> String
 concatenarDigito n i
-  | i <= n = show n ++ concatenarDigito n (i + 1)
-  | otherwise = "-"
+  | i > 0 = concatenarDigito n (i - 1) ++ show n
+  | otherwise = ""
 
 main :: IO ()
 main = do

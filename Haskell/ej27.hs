@@ -1,11 +1,11 @@
 numerosMultiplosDe :: (Int, Int, Int) -> String
 numerosMultiplosDe (a, b, c)
-  | a <= b = esMultiploDe a c ++ numerosMultiplosDe (a + 1, b, c)
-  | otherwise = ""
+  | a < b = numerosMultiplosDe (a, b - 1, c) ++ esMultiploDe b c
+  | otherwise = esMultiploDe b c
 
 esMultiploDe :: Int -> Int -> String
 esMultiploDe a c
-  | mod a c == 0 = show a ++ " "
+  | mod a c == 0 = " " ++ show a
   | otherwise = ""
 
 main :: IO ()

@@ -1,12 +1,12 @@
 alinear :: String -> String -> String -> Int -> String
 alinear a b c cant = a ++ cantidadCaracteres ++ b ++ cantidadCaracteres ++ c
   where
-    cantidadCaracteres = generarEspacios (div cantidad 2) 1
+    cantidadCaracteres = generarEspacios (div cantidad 2) (div cantidad 2)
     cantidad = cant - length a - length b - length c
 
 generarEspacios :: Int -> Int -> String
 generarEspacios n i
-  | i <= n = " " ++ generarEspacios n (i + 1)
+  | i >= 0 = " " ++ generarEspacios n (i - 1)
   | otherwise = ""
 
 main :: IO ()

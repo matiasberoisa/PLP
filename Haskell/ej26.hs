@@ -2,13 +2,12 @@ import Data.Fixed (mod')
 
 añoBisiesto :: Int -> Int -> String
 añoBisiesto n m
-  | n <= m = esAñoBisiesto n ++ "\n" ++ añoBisiesto (n + 1) m
+  | n <= m = añoBisiesto n (m - 1) ++ " " ++ esAñoBisiesto m
   | otherwise = ""
 
 esAñoBisiesto :: Int -> String
 esAñoBisiesto n
-  | mod n 4 == 0 = show n ++ " es bisiesto"
-  | mod n 100 == 0 && mod n 400 == 0 = show n ++ " es bisiesto"
+  | mod n 4 == 0 || (mod n 100 == 0 && mod n 400 == 0) = show n ++ " es bisiesto"
   | otherwise = show n ++ " NO es bisiesto"
 
 main :: IO ()
